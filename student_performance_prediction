@@ -1,0 +1,14 @@
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+
+data = pd.read_csv("student_performance.csv")
+
+X = data[['StudyHours', 'Attendance']]
+y = data['Result']
+
+model = RandomForestClassifier()
+model.fit(X, y)
+
+prediction = model.predict([[6, 80]])
+
+print("Prediction:", prediction[0])
